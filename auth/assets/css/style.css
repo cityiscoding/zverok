@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+body {
+    background-color: #0b1727;
+    font-family: "Open Sans", sans-serif;
+}
+
+.text-blue {
+    color: #2569c2;
+}
+
+.dialog {
+    border-radius: 8px;
+    background-color: #121e2d;
+}
+
+.login {
+    height: 100vh;
+}
+
+.input-text {
+    background-color: #0b1727;
+}
+
+.input-text:focus {
+    background-color: #0b1727;
+}
+
+.error {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #dc3545;
+}
