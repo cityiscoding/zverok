@@ -1,23 +1,26 @@
 <?php
 session_start();
-
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 @include '../config/config.php';
+
+$error = '';
 
 if (isset($_POST['submit'])) {
    if (isset($_POST['email'])) {
       $name = mysqli_real_escape_string($conn, $_POST['email']);
    }
    if (isset($_POST['password'])) {
-      $password = md5($_POST['password']);
+      $password = ($_POST['password']);
    }
-   $select = "SELECT * FROM user_form WHERE name = '$name' && password = '$password'";
+   $select = "SELECT * FROM user_form WHERE name = '$name' AND password = '$password'";
    $result = mysqli_query($conn, $select);
 
    if ($result && mysqli_num_rows($result) > 0) {
-      $error = 'sc!';
+      $row = mysqli_fetch_assoc($result);
+      $_SESSION['username'] = $row['name'];
+      header('Location: welcome.php'); // Điều hướng đến trang chào mừng sau khi đăng nhập thành công
       exit();
    } else {
       $error = 'Sai tài khoản hoặc mật khẩu!';
@@ -42,7 +45,7 @@ if (isset($_POST['submit'])) {
       <form action="" method="post">
          <h3>Đăng nhập</h3>
          <?php
-         if (isset($error)) {
+         if ($error != '') {
             echo '<span class="error-msg">' . $error . '</span>';
          }
          ?>
