@@ -4,7 +4,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 include '../config/config.php';
-
 $error = '';
 
 if (isset($_POST['login'])) {
@@ -27,47 +26,109 @@ if (isset($_POST['login'])) {
    }
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="assets/css/style.css">
-   <title>Vui lòng đăng nhập</title>
+   <title>Login to continue</title>
+   <link rel="stylesheet" href="assets/css/login.css">
+   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
-   <div class="container-fluid">
-      <div class="d-flex flex-column justify-content-center align-items-center vh-100">
-         <div class="mb-2 d-flex flex-column justify-content-center align-items-center">
-            <img src="assets/img/login.png" alt="login" class="img-fluid">
+   <header class="header">
+      <nav class="navbar">
+         <a href="#">Home</a>
+         <a href="#">About</a>
+         <a href="#">Skill</a>
+         <a href="#">Contact</a>
+         <a href="#">Bank</a>
+      </nav>
+      <form action="" class="search-bar">
+         <input type="text" placeholder="Search...">
+         <button><i class='bx bx-search'></i></button>
+      </form>
+   </header>
+   <div class="background"></div>
+   <div class="container">
+      <div class="item">
+         <h2 class="logo"><i class='bx bxl-xing'> </i>Cityiscoding</h2>
+         <div class="text-item">
+            <h2>Welcome! <br><span>
+                  To my website
+               </span></h2>
+            <p>The way one walks and sits can reflect a part of a person's character, but as a programmer like me, I completely deny that..</p>
+            <div class="social-icon">
+               <a href="#"><i class='bx bxl-facebook'></i></a>
+               <a href="#"><i class='bx bxl-twitter'></i></a>
+               <a href="#"><i class='bx bxl-youtube'></i></a>
+               <a href="#"><i class='bx bxl-instagram'></i></a>
+               <a href="#"><i class='bx bxl-linkedin'></i></a>
+            </div>
          </div>
-         <div class="dialog p-4 col-sm-8 col-md-6 col-lg-5 col-xl-4 col-xxl-3">
-            <form method="POST" enctype="multipart/form-data">
-               <h5 class="text-white mb-3">Đăng nhập</h5>
-               <div class="mb-3">
-                  <input type="text" name="username" id="username" class="form-control text-white border-0 input-text" placeholder="Nhập tên đăng nhập..." autocomplete="off">
+      </div>
+      <div class="login-section">
+         <div class="form-box login">
+            <form action="">
+               <h2>Sign In</h2>
+               <div class="input-box">
+                  <span class="icon"><i class='bx bxs-envelope'></i></span>
+                  <input type="text" name="username" required>
+                  <label>Username</label>
                </div>
-               <div class="mb-3">
-                  <input type="password" name="password" id="password" class="form-control text-white border-0 input-text" placeholder="Nhập mật khẩu đăng nhập..." autocomplete="off">
+               <div class="input-box">
+                  <span class="icon"><i class='bx bxs-lock-alt'></i></span>
+                  <input type="password" name="password" required>
+                  <label>Password</label>
                </div>
                <?php if (isset($error)) : ?>
                   <div class="error">
                      <?= $error ?>
                   </div>
                <?php endif; ?>
-               <div class="mt-4 mb-3">
-                  <button type="submit" class="btn btn-primary w-100" name="login">Đăng nhập</button>
+               <div class="remember-password">
+                  <label for=""><input type="checkbox">Remember Me</label>
+                  <a href="#">Forget Password</a>
+               </div>
+               <button class="btn">Login In</button>
+               <div class="create-account">
+                  <p>Create A New Account? <a href="#" class="register-link">Sign Up</a></p>
+               </div>
+            </form>
+         </div>
+         <div class="form-box register">
+            <form action="">
+
+               <h2>Sign Up</h2>
+
+               <div class="input-box">
+                  <span class="icon"><i class='bx bxs-user'></i></span>
+                  <input type="text" name="name" required>
+                  <label>Username</label>
+               </div>
+               <div class="input-box">
+                  <span class="icon"><i class='bx bxs-envelope'></i></span>
+                  <input type="email" required>
+                  <label>Email</label>
+               </div>
+               <div class="input-box">
+                  <span class="icon"><i class='bx bxs-lock-alt'></i></span>
+                  <input type="password" required>
+                  <label>Password</label>
+               </div>
+               <div class="remember-password">
+                  <label for=""><input type="checkbox">I agree with cityiscoding ?</label>
+               </div>
+               <button class="btn">Login In</button>
+               <div class="create-account">
+                  <p>Already Have An Account? <a href="#" class="login-link">Sign In</a></p>
                </div>
             </form>
          </div>
       </div>
    </div>
+
+   <script src="assets/js/index.js"></script>
 </body>
 
 </html>
