@@ -69,7 +69,7 @@ if (isset($_POST['login'])) {
       </div>
       <div class="login-section">
          <div class="form-box login">
-            <form action="">
+            <form action="" method="POST"> <!-- Thêm method="POST" để gửi dữ liệu -->
                <h2>Sign In</h2>
                <div class="input-box">
                   <span class="icon"><i class='bx bxs-envelope'></i></span>
@@ -90,7 +90,7 @@ if (isset($_POST['login'])) {
                   <label for=""><input type="checkbox">Remember Me</label>
                   <a href="#">Forget Password</a>
                </div>
-               <button class="btn">Login In</button>
+               <button class="btn" type="submit" name="login">Login In</button> <!-- Thêm type="submit" và name="login" -->
                <div class="create-account">
                   <p>Create A New Account? <a href="#" class="register-link">Sign Up</a></p>
                </div>
